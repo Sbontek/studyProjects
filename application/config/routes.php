@@ -58,7 +58,8 @@ $route['(:any)'] = 'pages/view/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-
+$route['categories'] = 'categories/index';
+$route['categories/create'] = 'categories/create';
 
 $route['news/create'] = 'news/create';
 $route['news/(:any)'] = 'news/view/$1';
