@@ -1,4 +1,6 @@
 	</div>
-                <em>&copy; 2017</em>
-        </body>
+     <script>
+		CKEDITOR.replace( 'editor1' );
+	 </script>
+  </body>
 </html>
