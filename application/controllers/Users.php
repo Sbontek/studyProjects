@@ -33,6 +33,65 @@
 				}
 			}
 			
+			public function Login()
+			{
+				$data['title'] = 'Sign in';
+
+				$this->form_validation->set_rules('username', 'Username', 'required');
+				$this->form_validation->set_rules('password', 'Password', 'required');
+
+
+				
+				if($this->form_validation->run() === FALSE)
+				{
+					$this->load->view('templates/header');
+					$this->load->view('users/login', $data);
+					$this->load->view('templates/footer');
+					
+				}
+				else
+				{
+					// get username
+					$username = $this->input->post('username');
+					//hash pwd
+					$password = password_verify($this->input->post('password'), PASSWORD_DEFAULT);
+					
+					// login user
+					$user_id = $this->user_model->login($username, $password);
+					
+					if($user_id)
+					{
+						// create session
+						$user_data = array
+						(
+							'user_id' => $user_id,
+							'username' => $username,
+							'logged_in' => true
+						);
+						
+						$this->session->set_userdata($user_data);
+						
+						//set message
+						$this->session->set_flashdata('user_loggedin', 'You are now logged in');
+					
+						redirect('posts');
+					}
+					else
+					{
+						//set message
+						$this->session->set_flashdata('login_failed', 'Login is invalid');
+					
+						redirect('users/login');
+					}
+					
+					//set message
+					$this->session->set_flashdata('user_loggedin', 'You are now logged in');
+					
+					redirect('posts');
+					
+				}
+			}
+			
 			function check_username_exists($username)
 			{
 				$this->form_validation->set_message
