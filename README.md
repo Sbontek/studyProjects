@@ -5,11 +5,15 @@ and place a copy of both config.php and database.php taken from either the appli
 then adjust the $config['base_url'] = '' to its respective url in config.php
 as well as setting up your database info in the database.php
 
+If you get an error regarding session, please change line  352 of your config.php file to say:
+$config['sess_save_path'] = sys_get_temp_dir();
+instead of
+$config['sess_save_path'] = NULL;
+
 database should include these four tables currently.
 please note another column was added to posts table 'user_id'
 
-db table 
-posts
+#db table posts
 
 CREATE TABLE `posts` (
   `id` int(11) NOT NULL,
@@ -22,8 +26,7 @@ CREATE TABLE `posts` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-db table
-categories
+#db table categories
 
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
@@ -31,8 +34,7 @@ CREATE TABLE `categories` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-db table
-comments
+#db table comments
 
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL,
@@ -43,8 +45,7 @@ CREATE TABLE `comments` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-db table
-users
+#db table users
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,

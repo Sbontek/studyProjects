@@ -92,7 +92,20 @@
 				}
 			}
 			
-			function check_username_exists($username)
+			// log out
+			public function logout($username)
+			{
+				//unset userdata
+				$this->session->unset_userdata('logged_in');
+				$this->session->unset_userdata('user_id');
+				$this->session->unset_userdata('username');
+				
+				$this->session->set_flashdata('user_loggedout', 'You are now logged out');
+				
+				redirect('users/login');
+			}
+			
+			public function check_username_exists($username)
 			{
 				$this->form_validation->set_message
 				(
@@ -109,7 +122,7 @@
 				}
 			}
 			
-			function check_email_exists($email)
+			public function check_email_exists($email)
 			{
 				$this->form_validation->set_message
 				(

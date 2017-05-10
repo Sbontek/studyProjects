@@ -9,3 +9,36 @@
 {
 	width:100%
 }
+
+.pagination-links
+{
+	margin:30px;
+	
+}
+
+.pagination-links strong
+{	
+	
+	padding: 8px 13px;
+	margin:5px;
+	background: #f4f4f4;
+	border: 1px #ccc solid;
+}
+
+a.pagination-link
+{
+	padding: 8px 13px;
+	margin:5px;
+	background: #f4f4f4;
+	border: 1px #ccc solid;
+}
+
+.cat-delete
+{
+	display:inline;
+}
+
+.text-danger
+{
+	color: red;
+}
