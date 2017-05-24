@@ -8,7 +8,6 @@
 			(
 				'name' => $this->input->post('name'),
 				'email' => $this->input->post('email'),
-				'zipcode' => $this->input->post('zipcode'),
 				'username' => $this->input->post('username'),
 				'password' => $enc_password,
 			);
@@ -25,7 +24,7 @@
 			
 			if($result->num_rows() == 1)
 			{
-				return $result->row(0)->id;
+				return $result->row(0);
 			}
 			else
 			{

@@ -11,10 +11,6 @@
 				<input type="text" class="form-control" name="name" placeholder="Name">
 			</div>
 			<div class="form-group">
-				<label>Zipcode</label>
-				<input type="text" class="form-control" name="zipcode" placeholder="Zipcode">
-			</div>
-			<div class="form-group">
 				<label>Username</label>
 				<input type="text" class="form-control" name="username" placeholder="Username">
 			</div>

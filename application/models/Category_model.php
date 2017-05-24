@@ -10,7 +10,8 @@
 		{
 			$data = array
 			(
-				'name' => $this->input->post('name')
+				'name' => $this->input->post('name'),
+				'user_id' => $this->session->userdata('user_id')
 			);
 			
 			return $this->db->insert('categories', $data);
@@ -27,5 +28,12 @@
 		{
 			$query = $this->db->get_where('categories', array('id' => $id));
 			return $query->row();
+		}
+		
+		public function delete_category($id)
+		{
+			$this->db->where('id', $id);
+			$this->db->delete('categories');
+			return true;
 		}
 	}

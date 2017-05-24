@@ -57,15 +57,16 @@
 					$password = password_verify($this->input->post('password'), PASSWORD_DEFAULT);
 					
 					// login user
-					$user_id = $this->user_model->login($username, $password);
+					$user = $this->user_model->login($username, $password);
 					
-					if($user_id)
+					if($user)
 					{
 						// create session
 						$user_data = array
 						(
-							'user_id' => $user_id,
+							'user_id' => $user->id,
 							'username' => $username,
+							'privy' => $user->privy,
 							'logged_in' => true
 						);
 						
@@ -73,7 +74,7 @@
 						
 						//set message
 						$this->session->set_flashdata('user_loggedin', 'You are now logged in');
-					
+						
 						redirect('posts');
 					}
 					else
@@ -99,6 +100,7 @@
 				$this->session->unset_userdata('logged_in');
 				$this->session->unset_userdata('user_id');
 				$this->session->unset_userdata('username');
+				$this->session->unset_userdata('privy');
 				
 				$this->session->set_flashdata('user_loggedout', 'You are now logged out');
 				

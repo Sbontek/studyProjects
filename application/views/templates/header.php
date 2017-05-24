@@ -6,6 +6,8 @@
 				<script src="http://cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
         </head>
         <body>
+
+		
 		<nav class="navbar navbar-inverse">
 			<div class="container">
 				<div class="navbar-header">
@@ -24,9 +26,11 @@
 							<li><a href="<?php echo base_url(); ?>users/register">Register</a></li>
 						<?php endif; ?>
 						<?php if($this->session->userdata('logged_in')) : ?>
+							<li><a href="<?php echo base_url(); ?>users/logout">Logout</a></li>
+						<?php endif; ?>
+						<?php if($this->session->userdata('privy') == 'admin') : ?>
 							<li><a href="<?php echo base_url(); ?>posts/create">Create Post</a></li>
 							<li><a href="<?php echo base_url(); ?>categories/create">Create Category</a></li>
-							<li><a href="<?php echo base_url(); ?>users/logout">Logout</a></li>
 						<?php endif; ?>
 					</ul>
 				</div>
@@ -65,3 +69,8 @@
 			<?php if($this->session->flashdata('user_loggedout')): ?>
 				<?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedout').'</p>' ;?>			
 			<?php endif; ?>	
+			
+			<?php if($this->session->flashdata('category_deleted')): ?>
+				<?php echo '<p class="alert alert-success">'.$this->session->flashdata('category_deleted').'</p>' ;?>			
+			<?php endif; ?>	
+

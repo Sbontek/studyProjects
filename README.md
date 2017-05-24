@@ -11,7 +11,10 @@ instead of
 $config['sess_save_path'] = NULL;
 
 database should include these four tables currently.
-please note another column was added to posts table 'user_id'
+
+edits to tables as of 15-5-2017
+one row called user_id has been added to categories table, and one row called user_id has been added to posts table
+
 
 #db table posts
 
@@ -30,6 +33,7 @@ CREATE TABLE `posts` (
 
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
