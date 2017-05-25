@@ -18,6 +18,12 @@ DONE add admin class to user database
 DONE make default user user instead of admin
 DONE change session to also look at value of privvy field and make it so only an admin can edit anything
 DONE seperate permissions of endusers and admin (what they can access on the site)
+DONE add tests selection screeen to header(made clickable link)
+DONE make test selection screen
+DONE make test_model
+DONE make test_controller
+
+make pop up confirmation messages for the create and delete functions(in header flashdata)
 
 create test taking environment for endusers
 session which saves test session per user,

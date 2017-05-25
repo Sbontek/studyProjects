@@ -50,6 +50,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
+$route['tests'] = 'tests/index';
+$route['tests/create'] = 'tests/create';
 $route['categories'] = 'categories/index';
 $route['categories/create'] = 'categories/create';
 $route['categories/post/(:any)'] = 'categories/posts/$1';
