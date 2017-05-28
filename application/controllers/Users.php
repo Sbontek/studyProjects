@@ -75,7 +75,7 @@
 						//set message
 						$this->session->set_flashdata('user_loggedin', 'You are now logged in');
 						
-						redirect('posts');
+						redirect('');
 					}
 					else
 					{
@@ -88,7 +88,7 @@
 					//set message
 					$this->session->set_flashdata('user_loggedin', 'You are now logged in');
 					
-					redirect('posts');
+					redirect('');
 					
 				}
 			}

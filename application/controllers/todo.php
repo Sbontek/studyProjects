@@ -1,15 +1,15 @@
 <?php
 /*
 
-add tables for tests, subcategories, question, choices
+DONE add tables for tests, subcategories, question, choices
 
-tests should include test id and user id of creator, also name, subject
+DONE tests should include test id and user id of creator, also name, subject
 
-subcategories should include test id and user id of creator and name, and subcategory id
+DONE subsections should include test id and user id of creator and name, and subcategory id
 
-question should include test id, subcategory id, question type, and question id
+DONE question should include test id, subcategory id, question type, and question id
 
-choices should include test id, subcategory id, if the correct answer or not, and question id, and choices id
+DONE choices should include test id, subcategory id, if the correct answer or not, and question id, and choices id
 
 
 
@@ -35,12 +35,12 @@ with email results to self button (emailing to users signup email)
 
 create test making environment for admin
 
-create test selection screen for both admin and endusers, 
-with admins having the ability to edit or delete the tests
-create the index view for this, a Tests.php controller and a test_model.php file with appropriate filling
-check for user admin status for the delete buttons.
-add routes in routes.php
-make a create test view file.
+DONE create test selection screen for both admin and endusers, 
+DONE with admins having the ability to edit or delete the tests
+DONE create the index view for this, a Tests.php controller and a test_model.php file with appropriate filling
+DONE check for user admin status for the delete buttons.
+DONE add routes in routes.php
+DONE make a create test view file.
 
 
 

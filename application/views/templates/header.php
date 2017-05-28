@@ -17,8 +17,6 @@
 					<ul class="nav navbar-nav">
 						<li><a href="<?php echo base_url(); ?>">Home</a></li>
 						<li><a href="<?php echo base_url(); ?>about">About</a></li>
-						<li><a href="<?php echo base_url(); ?>posts">Blog</a></li>
-						<li><a href="<?php echo base_url(); ?>categories">Categories</a></li>
 						<li><a href="<?php echo base_url(); ?>tests">Tests</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
@@ -30,8 +28,8 @@
 							<li><a href="<?php echo base_url(); ?>users/logout">Logout</a></li>
 						<?php endif; ?>
 						<?php if($this->session->userdata('privy') == 'admin') : ?>
-							<li><a href="<?php echo base_url(); ?>posts/create">Create Post</a></li>
-							<li><a href="<?php echo base_url(); ?>categories/create">Create Category</a></li>
+							<li><a href="<?php echo base_url(); ?>tests/create">Create Test</a></li>
+							
 						<?php endif; ?>
 					</ul>
 				</div>

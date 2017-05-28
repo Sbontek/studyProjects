@@ -10,44 +10,62 @@ $config['sess_save_path'] = sys_get_temp_dir();
 instead of
 $config['sess_save_path'] = NULL;
 
-database should include these four tables currently.
+database should include these tables currently.
 
-edits to tables as of 15-5-2017
-one row called user_id has been added to categories table, and one row called user_id has been added to posts table
+Tables in the database as of 28-5-2017
 
 
-#db table posts
+#db table answers
 
-CREATE TABLE `posts` (
-  `id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
+CREATE TABLE `answers` (
+  `answer_id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL,
+  `answer_text` varchar(2000) NOT NULL,
+  `is_correct` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+#db table questions
+
+CREATE TABLE `questions` (
+  `question_id` int(11) NOT NULL,
+  `subsection_id` int(11) NOT NULL,
+  `question_text` varchar(2000) NOT NULL,
+  `question_type_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+#db table question_types
+
+CREATE TABLE `question_types` (
+  `question_type_id` int(11) NOT NULL,
+  `question_type_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+#db table tests
+
+CREATE TABLE `tests` (
+  `test_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
-  `body` text NOT NULL,
-  `post_image` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `test_name` varchar(255) NOT NULL,
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-#db table categories
 
-CREATE TABLE `categories` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+
+#db table test_subsection
+
+CREATE TABLE `test_subsection` (
+  `test_subsection_id` int(11) NOT NULL,
+  `test_id` int(11) NOT NULL,
+  `subsection_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-#db table comments
 
-CREATE TABLE `comments` (
-  `id` int(11) NOT NULL,
-  `post_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `body` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 #db table users
 

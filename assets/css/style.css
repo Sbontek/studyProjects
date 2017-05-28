@@ -38,6 +38,11 @@ a.pagination-link
 	display:inline;
 }
 
+.test-delete
+{
+	display: inline;
+}
+
 .text-danger
 {
 	color: red;
