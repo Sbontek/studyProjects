@@ -22,6 +22,7 @@
 			$this->db->where('test_subsection.test_id', $test_id);
 			$this->db->join('test_subsection', 'test_subsection.test_subsection_id = questions.subsection_id');
 			$this->db->limit(1, $question_offset);
+			$last = $this->db->order_by('question_id',"desc")->limit(1)->get('items')->row(); // trying to do pagination here
 			$query = $this->db->get();
 			return $query->result();
 		}

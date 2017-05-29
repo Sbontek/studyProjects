@@ -28,7 +28,8 @@ DONE create form with question id and answers
 DONE post form to next question button
 
 DONE create test making environment for admin
-
+DONE remove custom create/delete test function_exists
+DONE remove categories/comments/blogposts stuff
 DONE create test selection screen for both admin and endusers, 
 DONE with admins having the ability to edit or delete the tests
 DONE create the index view for this, a Tests.php controller and a test_model.php file with appropriate filling
@@ -46,6 +47,14 @@ DONE make a create test view file.
 
 
 NEXT UP
+End test after last question  
+fetch last row highest question_id nr in public function get_questions in test_model
+pass it along as a variable to tests controller so
+i can compare that variable to question_id and if it matches bring test to result page instead of continuing on tests/take view
+
+!!!
+make friggin test result page!!
+
 $_SESSION['quiz'][$test_id][$question_id] = $answer_id;  (in tests/take view file)
 in controller set question_id with answer in session
 when on final page, with no questions left, check answers correct, 
@@ -57,6 +66,11 @@ session which saves test session per user,
 session saves all questions offered to user for this test, and their categories, and the users, incorrect or correct answers
 make the randomized questions selected for the users test predetermined? so can save them easier to session.
 
+
+bonus shizzle
+
+show amount of questions on the test through counting the amount of question_id's in the array?
+(current question nr of how many to go)
 
 
 
