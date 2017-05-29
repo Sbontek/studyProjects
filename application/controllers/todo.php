@@ -23,17 +23,11 @@ DONE make test selection screen
 DONE make test_model
 DONE make test_controller
 
-make pop up confirmation messages for the create and delete functions(in header flashdata)
+DONE create test taking environment for endusers
+DONE create form with question id and answers
+DONE post form to next question button
 
-create test taking environment for endusers
-session which saves test session per user,
-session saves all questions offered to user for this test, and their categories, and the users, incorrect or correct answers
-make the randomized questions selected for the users test predetermined? so can save them easier to session.
-
-create test result page for endusers
-with email results to self button (emailing to users signup email)
-
-create test making environment for admin
+DONE create test making environment for admin
 
 DONE create test selection screen for both admin and endusers, 
 DONE with admins having the ability to edit or delete the tests
@@ -43,6 +37,25 @@ DONE add routes in routes.php
 DONE make a create test view file.
 
 
+
+
+
+
+
+
+
+
+NEXT UP
+$_SESSION['quiz'][$test_id][$question_id] = $answer_id;  (in tests/take view file)
+in controller set question_id with answer in session
+when on final page, with no questions left, check answers correct, 
+check answer_id if is_correct, 
+sort result by subsection and print result
+create test result page for endusers
+with email results to self button (emailing to users signup email)
+session which saves test session per user,
+session saves all questions offered to user for this test, and their categories, and the users, incorrect or correct answers
+make the randomized questions selected for the users test predetermined? so can save them easier to session.
 
 
 

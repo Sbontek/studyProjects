@@ -6,16 +6,35 @@
 			$this->load->database();
 		}
 		
-		public function create_test()
+		public function get_subsections($test_id)
 		{
-			$data = array
-			(
-				'test_name' => $this->input->post('name'),
-				'user_id' => $this->session->userdata('user_id')
-			);
-			
-			return $this->db->insert('tests', $data);
+			$this->db->select('*');
+			$this->db->from('test_subsection');
+			$this->db->where('test_subsection.test_id', $test_id);
+			$query = $this->db->get();
+			return $query->result();
 		}
+		
+		public function get_questions($test_id, $question_offset)
+		{
+			$this->db->select('*');
+			$this->db->from('questions');
+			$this->db->where('test_subsection.test_id', $test_id);
+			$this->db->join('test_subsection', 'test_subsection.test_subsection_id = questions.subsection_id');
+			$this->db->limit(1, $question_offset);
+			$query = $this->db->get();
+			return $query->result();
+		}
+		
+		public function get_answers($question_id)
+		{
+			$this->db->select('*');
+			$this->db->from('answers');
+			$this->db->where('answers.question_id', $question_id);
+			$query = $this->db->get();
+			return $query->result();
+		}
+		
 		
 		public function get_tests()
 		{
@@ -30,10 +49,5 @@
 			return $query->row();
 		}
 		
-		public function delete_test($id)
-		{
-			$this->db->where('test_id', $id);
-			$this->db->delete('tests');
-			return true;
-		}
+
 	}

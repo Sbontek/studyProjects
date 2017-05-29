@@ -16,6 +16,15 @@
 		{
 			$this->check_privy();
 			
+			$this->load->view('templates/header');
+			$this->load->view('tests/testadmin');
+			$this->load->view('templates/footer');
+		}
+		
+		public function create_test()
+		{
+			$this->check_privy();
+			
 			$crud = new grocery_CRUD();
 					
 			$crud->set_table('tests');
@@ -102,28 +111,35 @@
 			$this->load->view('templates/footer');			
 		}
 		
-		public function posts($id)
-		{
-			$data['title'] = $this->test_model->get_test($id)->name;
-			
-			$data['posts'] = $this->post_model->get_posts_by_category($id);
-			
-			$this->load->view('templates/header');
-			$this->load->view('posts/index', $data);
-			$this->load->view('templates/footer');
-		}
-		
-		public function delete($id)
+		public function take($test_id, $question_offset)
 		{
 			if(!$this->session->userdata('logged_in'))
 			{
-				redirect('users/login');
+				redirect('users/login');	
 			}
-			$this->test_model->delete_test($id);
 			
-			$this->session->set_flashdata('test_deleted', 'Your test has been deleted');
 			
-			redirect('test');
+			$questions = $this->test_model->get_questions($test_id, $question_offset);
+			
+			foreach($questions as $question)
+			{
+				$answers = $this->test_model->get_answers($question->question_id);
+				$question->answers = $answers;
+			}
+			
+			
+			$this->load->view('templates/header');
+			$this->load->view('tests/take', ['test_id' => $test_id, 'question_offset' => $question_offset, 'questions' => $questions]);
+			$this->load->view('templates/footer');		
+		}
+		
+		public function take_begin($test_id)
+		{
+			
+			$_SESSION['quiz'][$test_id] = [];
+			$this->load->view('templates/header');
+			$this->load->view('tests/take_begin', ['test_id' => $test_id]);
+			$this->load->view('templates/footer');	
 		}
 		
 		public function check_privy()

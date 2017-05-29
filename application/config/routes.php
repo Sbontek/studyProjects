@@ -51,7 +51,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 $route['example'] = 'example';
-
+$route['tests/take_begin/(:any)'] = 'tests/take_begin/$1';
+$route['tests/take/(:any)/(:any)'] = 'tests/take/$1/$2';
 $route['tests'] = 'tests/index';
 $route['tests/create'] = 'tests/create';
 $route['categories'] = 'categories/index';

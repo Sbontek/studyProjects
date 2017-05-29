@@ -28,7 +28,7 @@
 							<li><a href="<?php echo base_url(); ?>users/logout">Logout</a></li>
 						<?php endif; ?>
 						<?php if($this->session->userdata('privy') == 'admin') : ?>
-							<li><a href="<?php echo base_url(); ?>tests/create">Create Test</a></li>
+							<li><a href="<?php echo base_url(); ?>tests/create">Edit Tests</a></li>
 							
 						<?php endif; ?>
 					</ul>
